@@ -5,7 +5,7 @@ import { Image } from 'astro:assets';
 import Sheet from '../components/Sheet.astro';
 ---
 
-<Layout title="Simple site">
+<Layout title="Simple site" commonjs='./js/common.js'>
   <div class="grid place-items-center justify-center relative">
     <Image src="./hero.webp" alt="" width="1919" height="1078" class="h-[calc(100vh-72px)] sm:h-auto object-cover"/>
     <div class="absolute left-0">

@@ -30,7 +30,7 @@ const nav = [
     <nav class="hidden sm:inline-block text-lg">
       <ul class="flex [&>li]:px-3 group">
       {nav.map((item)=>
-      <li class="flex flex-col items-center relative hover:after:absolute hover:after:inline-block hover:after:bottom-[-4px] hover:after:w-8 hover:after:h-0.5 hover:after:bg-green-700"><a href={item.href}>{item.label}</a></li>
+      <li class="flex flex-col items-center relative after:opacity-0 after:w-0 after:transition-all hover:after:absolute hover:after:opacity-100 hover:after:inline-block hover:after:w-8 hover:after:bottom-[-4px] hover:after:h-0.5 hover:after:bg-green-700 hover:text-green-900 transition-all"><a class="hover:opacity-100" href={item.href}>{item.label}</a></li>
       )}
       </ul>
     </nav>

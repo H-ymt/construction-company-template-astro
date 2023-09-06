@@ -26,9 +26,10 @@ const { title } = Astro.props;
 	</head>
 	<body>
 		<Header/>
-		<main class="w-[calc(100%-40px)] mx-auto">
+		<main>
 			<slot />
 		</main>
+
 		<slot name="javascript"/>
 	</body>
 </html>

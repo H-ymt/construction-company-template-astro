@@ -1,8 +1,18 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import NewsList from "../components/NewsList.astro"
+import { Image } from 'astro:assets';
+import Sheet from '../components/Sheet.astro';
 ---
 
 <Layout title="Simple site">
-  <h1 class="text-3xl">地域に根付いた建設会社です</h1>
+  <div class="grid place-items-center justify-center relative">
+    <Image src="./hero.webp" alt="" width="1919" height="1078" class="h-[calc(100vh-72px)] sm:h-auto object-cover"/>
+    <div class="absolute left-0">
+      <h1 class="py-5 px-8 text-3xl sm:text-4xl text-white [text-shadow:_0_3px_0_rgb(0_0_0_/_40%)] font-bold bg-gray-900/30">地域に根付いた<span class="inline-block">建設会社を目指して</span></h1>
+    </div>
+  </div>
+  <Sheet>
+    <h2>会社概要</h2>
+  </Sheet>
 </Layout>

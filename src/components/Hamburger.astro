@@ -21,13 +21,13 @@ const nav = [
 <nav class="sm:hidden">
   
   <button type="button" class="z-10 fixed top-5 right-4 js-button">
-    <i class="fa-regular fa-bars fa-2x js-bars"></i>
-    <i class="fa-regular fa-xmark fa-2x hidden js-xmark"></i>
+    <i class="fa-solid fa-bars fa-2x js-bars"></i>
+    <i class="fa-solid fa-xmark fa-2x hidden js-xmark"></i>
   </button>
 
   <div class="hidden fixed top-0 left-0 bg-gray-800/90 w-full h-screen js-overlay"></div>
   
-  <ul class="z-0 fixed top-0 right-0 w-[80%] h-screen pt-12 pl-8 text-xl bg-white translate-x-full ease-linear transition duration-300 js-menu">
+  <ul class="z-0 fixed top-0 right-0 w-[80%] h-screen pt-12 pl-8 text-xl bg-white translate-x-full ease-linear transition duration-200 js-menu">
     {nav.map((item) => 
 <li class="py-6"><a href={item.href}>{item.label}</a></li>
 )}

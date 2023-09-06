@@ -1,0 +1,40 @@
+---
+import {Image} from 'astro:assets'
+import Hamburger from './Hamburger.astro';
+
+const nav = [
+  {
+    href:'/',
+    label:'ホーム'
+  },
+  {
+    href:'/company',
+    label:'会社情報'
+  },
+  {
+    href:'/news',
+    label: 'お知らせ',
+  },
+  {
+    href:'contact',
+    label:'お問合せ'
+}
+]
+---
+
+<header class="grid h-[72px] mx-auto">
+  <div class="flex items-center justify-between w-[calc(100%-32px)] sm:w-[calc(100%-56px)] lg:w-[calc(100%-72px)] max-w-[1200px] mx-auto">
+    <div class="logo"><Image src="/favicon.svg"/ alt="" width="40" height="40"></div>
+<Hamburger/>
+
+    <nav class="hidden sm:inline-block text-lg">
+      <ul class="flex [&>li]:px-3 group">
+      {nav.map((item)=>
+      <li class="flex flex-col items-center relative hover:after:absolute hover:after:inline-block hover:after:bottom-[-4px] hover:after:w-8 hover:after:h-0.5 hover:after:bg-green-700"><a href={item.href}>{item.label}</a></li>
+      )}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+

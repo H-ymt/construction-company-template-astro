@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@astrojs/tailwind": "^5.0.0",
+    "@astrojs/vercel": "^4.0.3",
     "@babel/core": "^7.22.15",
     "@babel/preset-env": "^7.22.15",
     "astro": "^3.0.8",

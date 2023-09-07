@@ -42,8 +42,3 @@ window.addEventListener("keydown", (event) => {
     flag = false;
   }
 });
-
-// フォーカストラップ制御
-focusTrap.addEventListener("focus", (e) => {
-  button.focus();
-});

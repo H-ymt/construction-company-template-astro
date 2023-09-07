@@ -1,11 +1,15 @@
 import { createClient } from "microcms-js-sdk";
-import type { MicroCMSQueries } from "microcms-js-sdk";
+import type {
+  MicroCMSContentId,
+  MicroCMSDate,
+  MicroCMSQueries,
+} from "microcms-js-sdk";
 const client = createClient({
   serviceDomain: import.meta.env.MICROCMS_SERVICE_DOMAIN,
   apiKey: import.meta.env.MICROCMS_API_KEY,
 });
 
-// 型の定義
+// ニュースの型定義
 export type News = {
   id: string;
   createdAt: string;
@@ -14,6 +18,7 @@ export type News = {
   revisedAt: string;
   title: string;
   content: string;
+  category: string;
 };
 
 export type NewsResponse = {
@@ -22,12 +27,16 @@ export type NewsResponse = {
   contents: News[];
 };
 
-// APIの呼び出し
+// ニュースの一覧を取得
 export const getNews = async (queries?: MicroCMSQueries) => {
   return await client.get<NewsResponse>({ endpoint: "news", queries });
 };
 
-export const getNewsDetail = async (contentId: string, queries?: MicroCMSQueries) => {
+// ニュースの詳細を取得
+export const getNewsDetail = async (
+  contentId: string,
+  queries?: MicroCMSQueries
+) => {
   return await client.getListDetail<News>({
     endpoint: "news",
     contentId,

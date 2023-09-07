@@ -1,18 +1,50 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import NewsList from "../components/NewsList.astro"
-import { Image } from 'astro:assets';
-import Sheet from '../components/Sheet.astro';
+import Layout from "../layouts/Layout.astro";
+import NewsList from "../components/NewsList.astro";
+import { Image } from "astro:assets";
+import Sheet from "../components/Sheet.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import Section from "../components/Section.astro";
+import ArrowLink from "../components/ArrowLink.astro";
+import PrimaryButton from "../components/PrimaryButton.astro";
 ---
 
-<Layout title="Simple site" commonjs='./js/common.js'>
+<Layout title="Simple site" commonjs="./js/common.js">
   <div class="grid place-items-center justify-center relative">
-    <Image src="./hero.webp" alt="" width="1919" height="1078" class="h-[calc(100dvh-72px)] sm:h-auto object-cover"/>
+    <Image
+      src="./hero.webp"
+      alt=""
+      width="1919"
+      height="1078"
+      class="h-[calc(100dvh-72px)] sm:h-auto object-cover"
+    />
     <div class="absolute left-0">
-      <h1 class="py-5 px-8 text-3xl sm:text-4xl text-white [text-shadow:_0_2px_0_rgb(0_0_0_/_40%)] font-bold bg-gray-900/50">Building Dreams,&ensp;<span class="inline-block">Crafting Tomorrow</span></h1>
+      <h1
+        class="py-5 px-8 text-3xl sm:text-4xl text-white [text-shadow:_0_2px_0_rgb(0_0_0_/_40%)] font-bold bg-gray-900/50"
+      >
+        夢を築き、<span class="inline-block">明日を創る</span>
+      </h1>
     </div>
   </div>
   <Sheet>
-    <h2>会社概要</h2>
+    <Section>
+      <SectionTitle eng="About us">私たちについて</SectionTitle>
+      <p class="pb-4">
+        建設分野において、夢と現実を結びつけるプロフェッショナルな建設パートナーです。<br
+        />私たちは20年以上にわたり、建設プロジェクトの実現に情熱と専門知識を注ぎ込んできました。
+      </p>
+      <div class="flex justify-end w-full">
+        <ArrowLink href="/about">More</ArrowLink>
+      </div>
+    </Section>
+
+    <Section>
+      <SectionTitle eng="News">お知らせ</SectionTitle>
+      <NewsList />
+
+      <div class="text-center mt-8">
+        <PrimaryButton href="./news">ニュース一覧</PrimaryButton>
+      </div>
+    </Section>
   </Sheet>
 </Layout>

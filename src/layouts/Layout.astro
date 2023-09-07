@@ -31,19 +31,17 @@ const { title, commonjs } = Astro.props;
 <style is:global>
   :root {
   }
+
   html {
+    color: #333;
     background: #fefefefb;
-    background-size: 224px;
   }
 
   body {
   }
 
-  @media (hover: hover) {
-    a:hover {
-      opacity: 0.7;
-      transition: all;
-      transition-duration: 0.2s;
-    }
+  p {
+    display: flex;
+    align-items: center;
   }
 </style>

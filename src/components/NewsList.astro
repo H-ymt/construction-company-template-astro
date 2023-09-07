@@ -1,21 +1,21 @@
 ---
-import {getNews} from "../libs/microcms"
-const response = await getNews({fields: ["id", "publishedAt","title","category"]})
-import formatDate from "../utils/formatDate"
+import { getNews } from "../libs/microcms";
+const response = await getNews({
+  fields: ["id", "publishedAt", "title", "category"],
+});
+import formatDate from "../utils/formatDate";
 ---
 
 <ul>
-	{
-		response.contents.map((content:any)=> (
-		<li>
-			<a href={content.id} class="flex gap-3 text-lg">
-			<p class="font-semibold">{formatDate(content.publishedAt)}</p>
-			<span>{content.category.name}</span>
-				<p>
-					{content.title}
-					</p>
-				</a>
-		</li>
-		))
-	}
+  {
+    response.contents.map((content: any) => (
+      <li>
+        <a href={content.id} class="flex gap-3 text-lg">
+          <p class="font-semibold">{formatDate(content.publishedAt)}</p>
+          <span>{content.category.name}</span>
+          <p>{content.title}</p>
+        </a>
+      </li>
+    ))
+  }
 </ul>

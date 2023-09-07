@@ -1,9 +1,14 @@
 ---
 interface Props {
-    eng : string;
+  eng: string;
 }
 
-const {eng} = Astro.props
+const { eng } = Astro.props;
 ---
 
-<h2 class="inline-flex flex-col gap-0.5 pb-4 sm:pb-6 text-2xl sm:text-3xl font-bold tracking-widest"><span class="text-sm sm:text-base text-green-900 tracking-normal">{eng}</span><slot/></h2>
+<h2
+  class="inline-flex flex-col gap-0.5 pb-4 sm:pb-6 text-2xl sm:text-3xl font-bold tracking-widest"
+>
+  <span class="text-sm sm:text-base text-green-900 tracking-normal">{eng}</span
+  ><slot />
+</h2>

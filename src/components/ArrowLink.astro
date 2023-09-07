@@ -1,13 +1,13 @@
 ---
-import { Icon } from 'astro-icon'
+import { Icon } from "astro-icon";
 
 interface Props {
-    href: string;
+  href: string;
 }
 
-const { href } = Astro.props
+const { href } = Astro.props;
 ---
 
 <a type="button" class="inline-flex gap-1 items-center text-lg" href={href}>
-    <slot/><Icon name="fluent:arrow-right-48-regular" class="w-5 h-5"/>
+  <slot /><Icon name="fluent:arrow-right-48-regular" class="w-5 h-5" />
 </a>

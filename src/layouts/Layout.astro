@@ -1,54 +1,49 @@
---- 
-import Header from "../components/Header.astro"
+---
+import Header from "../components/Header.astro";
 interface Props {
-	title: string;
-	commonjs: string;
+  title: string;
+  commonjs: string;
 }
 
 const { title, commonjs } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description">
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body class="font-notoSans">
-		<Header/>
-		<main>
-			<slot />
-		</main>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class="font-notoSans">
+    <Header />
+    <main>
+      <slot />
+    </main>
 
-	<script src={commonjs} defer></script>
-		<slot name="javascript"/>
-	</body>
+    <script src={commonjs} defer></script>
+    <slot name="javascript" />
+  </body>
 </html>
 <style is:global>
+  :root {
+  }
+  html {
+    background: #fefefefb;
+    background-size: 224px;
+  }
 
-	:root {
-	
-	}
-	html {
-		background: #fefefefb;
-		background-size: 224px;
-	}
-	
-	body {
+  body {
+  }
 
-
-	}
-
-	@media(hover:hover) {
-		a:hover {
-opacity: 0.7;
-transition: all;
-transition-duration: 0.2s;
-		}
-	}
-	
+  @media (hover: hover) {
+    a:hover {
+      opacity: 0.7;
+      transition: all;
+      transition-duration: 0.2s;
+    }
+  }
 </style>

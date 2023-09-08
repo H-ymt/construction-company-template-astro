@@ -5,11 +5,13 @@ import formatDate from "../utils/formatDate";
 const response = await getNews({
   fields: ["id", "publishedAt", "title", "category"],
 });
+
+const limitedNews = response.contents.slice(0, 3);
 ---
 
 <ul class="flex flex-col gap-8">
   {
-    response.contents.map((content: any) => (
+    limitedNews.map((content: any) => (
       <li class="border-b border-gray-950 pb-1.5 sm:pb-4 group">
         <a
           href={`/news/${content.id}`}
@@ -19,11 +21,11 @@ const response = await getNews({
             <time class="text-base font-semibold">
               {formatDate(content.publishedAt)}
             </time>
-            <span class="inline-block ml-3 py-1 px-2 text-white text-sm bg-green-800/80 rounded-md">
+            <span class="inline-flex justify-center min-w-[80px] ml-3 py-1 px-2 text-white text-sm bg-green-800/80 rounded-md">
               {content.category.name}
             </span>
           </div>
-          <p class="mt-2 sm:mt-0 sm:ml-3 text-lg group-hover:underline underline-offset-2 decoration-1">
+          <p class="inline-block mt-2 sm:mt-0 sm:ml-3 text-lg group-hover:underline underline-offset-2 decoration-1 whitespace-nowrap overflow-ellipsis line-clamp-1">
             {content.title}
           </p>
         </a>

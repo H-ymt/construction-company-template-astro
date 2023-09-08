@@ -8,6 +8,9 @@ interface Props {
 const { href } = Astro.props;
 ---
 
-<a type="button" class="inline-flex gap-1 items-center text-lg" href={href}>
+<a
+  class="inline-flex gap-1 items-center text-lg hover:text-green-700 duration-200"
+  href={href}
+>
   <slot /><Icon name="fluent:arrow-right-48-regular" class="w-5 h-5" />
 </a>

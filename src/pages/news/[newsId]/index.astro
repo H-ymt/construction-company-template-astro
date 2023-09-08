@@ -1,13 +1,14 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import formatDate from "../utils/formatDate";
-import { getNews, getNewsDetail } from "../libs/microcms";
+import Layout from "../../../layouts/Layout.astro";
+import formatDate from "../../../utils/formatDate";
+import { getNews, getNewsDetail } from "../../../libs/microcms";
+import type { News } from "../../../libs/microcms";
 
 // 詳細記事ページの全パスを取得
 export async function getStaticPaths() {
   const response = await getNews({ fields: ["id"] });
 
-  return response.contents.map((content: any) => ({
+  return response.contents.map((content: News) => ({
     params: {
       newsId: content.id,
     },

@@ -12,7 +12,7 @@ const response = await getNews({
     response.contents.map((content: any) => (
       <li class="border-b border-gray-950 pb-1.5 sm:pb-4 group">
         <a
-          href={content.id}
+          href={`/news/${content.id}`}
           class="flex flex-col sm:flex-row hover:opacity-100"
         >
           <div class="inline-flex items-center">

@@ -1,0 +1,32 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../../../layouts/Layout.astro";
+import { getWorksDetail, getWorks } from "../../../libs/microcms";
+import type { Works } from "../../../libs/microcms";
+
+// 詳細ページの全パスを取得
+export async function getStaticPaths() {
+  const response = await getWorks({ fields: ["id"] });
+
+  return response.contents.map((content: Works) => ({
+    params: {
+      worksId: content.id,
+    },
+  }));
+}
+
+// 施工実績の詳細情報を取得
+const { worksId } = Astro.params;
+const works = await getWorksDetail(worksId as string);
+---
+
+<Layout title={`${works.title} - 施工実績`} commonjs="./js/common.js">
+  <h1>{works.title}</h1>
+  <img
+    src={works.thumbnail?.url}
+    width={works.thumbnail?.width}
+    height={works.thumbnail?.height}
+    alt=""
+    class="max-w-[860px] rounded-xl"
+  />
+</Layout>

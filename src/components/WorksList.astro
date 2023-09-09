@@ -1,0 +1,32 @@
+---
+import { Image } from "astro:assets";
+import { getWorks } from "../libs/microcms";
+
+const response = await getWorks({
+  fields: ["id", "thumbnail", "title", "content", "date"],
+});
+
+const limitedWorks = response.contents.slice(0, 6);
+---
+
+<ul>
+  {
+    limitedWorks.map((content: any) => (
+      <li class="max-w-[360px]">
+        <a href={`/works/${content.id}`}>
+          <p>{content.title}</p>
+          <div>
+            <Image
+              src={content.thumbnail?.url}
+              width={content.thumbnail?.width}
+              height={content.thumbnail?.height}
+              alt=""
+              class="rounded-xl"
+            />
+          </div>
+          <p set:html={content.content} />
+        </a>
+      </li>
+    ))
+  }
+</ul>

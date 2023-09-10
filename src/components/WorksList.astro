@@ -11,20 +11,19 @@ const limitedWorks = response.contents.slice(0, 6);
 
 <ul>
   {
-    limitedWorks.map((content: any) => (
-      <li class="max-w-[360px]">
+    limitedWorks.slice(0, 4).map((content: any) => (
+      <li class="max-w-[480px]">
         <a href={`/works/${content.id}`}>
-          <p>{content.title}</p>
           <div>
             <Image
               src={content.thumbnail?.url}
-              width={content.thumbnail?.width}
-              height={content.thumbnail?.height}
+              width="480"
+              height="480"
               alt=""
               class="rounded-xl"
             />
           </div>
-          <p set:html={content.content} />
+          <p class="mt-3 text-lg">{content.title}</p>
         </a>
       </li>
     ))

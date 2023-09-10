@@ -5,13 +5,11 @@ import formatDate from "../utils/formatDate";
 const response = await getNews({
   fields: ["id", "publishedAt", "title", "category"],
 });
-
-const limitedNews = response.contents.slice(0, 3);
 ---
 
 <ul class="flex flex-col gap-8">
   {
-    limitedNews.map((content: any) => (
+    response.contents.slice(0, 3).map((content: any) => (
       <li class="border-b border-gray-950 pb-1.5 sm:pb-4 group">
         <a
           href={`/news/${content.id}`}

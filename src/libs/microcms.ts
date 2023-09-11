@@ -28,7 +28,7 @@ export type Works = {
   id: string;
   thumbnail?: MicroCMSImage;
   title: string;
-  content: string;
+  body: string;
   date: string;
 };
 

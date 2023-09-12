@@ -3,29 +3,51 @@ import { Image } from "astro:assets";
 import { getWorks } from "../libs/microcms";
 
 const response = await getWorks({
-  fields: ["id", "thumbnail", "title", "content", "date"],
+  fields: ["id", "thumbnail", "title", "body", "date"],
 });
 
 const limitedWorks = response.contents.slice(0, 6);
+export const prerender = true;
 ---
 
-<ul>
-  {
-    limitedWorks.slice(0, 4).map((content: any) => (
-      <li class="max-w-[480px]">
-        <a href={`/works/${content.id}`}>
-          <div>
-            <Image
-              src={content.thumbnail?.url}
-              width="480"
-              height="480"
-              alt=""
-              class="rounded-xl"
-            />
-          </div>
-          <p class="mt-3 text-lg">{content.title}</p>
-        </a>
-      </li>
-    ))
-  }
-</ul>
+<div class="relative max-w-full mx-auto">
+  <div class="swiper">
+    <ul class="swiper-wrapper">
+      {
+        limitedWorks.slice(0, 4).map((content: any) => (
+          <li class="swiper-slide">
+            <a
+              href={`/works/${content.id}`}
+              class="grid justify-items-start items-center md:grid-cols-2 gap-4 max-h-[100%]"
+            >
+              <div>
+                <Image
+                  src={content.thumbnail?.url}
+                  width={content.thumbnail?.width}
+                  height={content.thumbnail?.height}
+                  alt=""
+                  class="rounded-xl w-full md:max-w-[460px] mx-auto"
+                />
+              </div>
+              <div class="">
+                <h3 class="text-lg font-semibold">{content.title}</h3>
+                <div
+                  set:html={content.body}
+                  class="mt-3 [&>p]:leading-7 [&>p]:overflow-ellipsis [&>p]:line-clamp-4"
+                />
+              </div>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+  <div class="swiper-pagination absolute bottom-[-24px]"></div>
+
+  <div class="swiper-button-prev left-[-32px]"></div>
+  <div class="swiper-button-next right-[-32px]"></div>
+</div>
+
+<script>
+  import "../../public/js/swiper.js";
+</script>

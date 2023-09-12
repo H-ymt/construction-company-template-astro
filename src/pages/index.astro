@@ -1,7 +1,7 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import NewsList from "../components/NewsList.astro";
-import { Image } from "astro:assets";
 import Sheet from "../components/Sheet.astro";
 import SectionTitle from "../components/SectionTitle.astro";
 import Section from "../components/Section.astro";
@@ -51,6 +51,10 @@ import WorksList from "../components/WorksList.astro";
     <Section>
       <SectionTitle eng="works">施工実績</SectionTitle>
       <WorksList />
+
+      <div class="text-center mt-8">
+        <PrimaryButton href="/works">実績をもっと見る</PrimaryButton>
+      </div>
     </Section>
   </Sheet>
 </Layout>

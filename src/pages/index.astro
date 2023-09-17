@@ -12,13 +12,22 @@ import WorksList from "../components/WorksList.astro";
 
 <Layout title="Simple site" commonjs="./js/common.js">
   <div class="grid place-items-center justify-center relative">
-    <Image
-      src="./hero.webp"
-      alt=""
-      width="1919"
-      height="1078"
-      class="h-[calc(100dvh-72px)] sm:h-auto object-cover"
-    />
+    <picture>
+      <source
+        srcset="./hero.webp"
+        media="(min-width:640px)"
+        width="1919"
+        height="1078"
+      />
+      <img
+        src="./hero-sm.webp"
+        alt=""
+        width="640"
+        height="359"
+        class="h-[calc(100dvh-72px)] sm:h-auto object-cover"
+      />
+    </picture>
+
     <div class="absolute left-0">
       <h1
         class="py-5 px-8 text-3xl sm:text-4xl text-white [text-shadow:_0_2px_0_rgb(0_0_0_/_40%)] font-bold bg-gray-900/50"

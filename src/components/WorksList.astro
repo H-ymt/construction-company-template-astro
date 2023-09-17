@@ -10,7 +10,7 @@ const limitedWorks = response.contents.slice(0, 6);
 export const prerender = true;
 ---
 
-<div class="relative max-w-full mx-auto">
+<div class="relative max-w-full mx-auto pb-[24px]">
   <div class="swiper">
     <ul class="swiper-wrapper">
       {
@@ -18,7 +18,7 @@ export const prerender = true;
           <li class="swiper-slide">
             <a
               href={`/works/${content.id}`}
-              class="grid justify-items-start items-center md:grid-cols-2 gap-4 max-h-[100%]"
+              class="grid justify-items-start items-center md:grid-cols-2 gap-4"
             >
               <div>
                 <Image
@@ -42,10 +42,19 @@ export const prerender = true;
       }
     </ul>
   </div>
-  <div class="swiper-pagination z-0 absolute bottom-[-24px]"></div>
+  <div
+    class="swiper-pagination z-0 [&>span.swiper-pagination-bullet-active]:bg-green-400"
+  >
+  </div>
 
-  <div class="swiper-button-prev z-10 left-[-18px]"></div>
-  <div class="swiper-button-next z-10 right-[-18px]"></div>
+  <div
+    class="swiper-button-prev z-10 left-[-22px] after:text-[20px] after:content-['prev'] after:text-green-900"
+  >
+  </div>
+  <div
+    class="swiper-button-next z-10 right-[-22px] after:text-[20px] after:content-['next'] after:text-green-900"
+  >
+  </div>
 </div>
 
 <script>

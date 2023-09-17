@@ -5,7 +5,7 @@ import { getWorks } from "../../libs/microcms";
 import { Image } from "astro:assets";
 import formatDate from "../../utils/formatDate";
 import Section from "../../components/Section.astro";
-import SectionTitle from "../../components/SectionTitle.astro";
+import PageTitle from "../../components/PageTitle.astro";
 
 const response = await getWorks({
   fields: ["id", "thumbnail", "title", "body", "date"],
@@ -14,10 +14,9 @@ const response = await getWorks({
 
 <Layout title="施工実績" commonjs="./js/common.js">
   <Sheet>
+    <PageTitle>施工実績</PageTitle>
     <Section>
-      <div class="text-center">
-        <SectionTitle eng="Works">施工実績</SectionTitle>
-      </div>
+      <div class="text-center"></div>
       <ul class="grid grid-cols-1 sm:grid-cols-2 gap-8">
         {
           response.contents.map((content: any) => (

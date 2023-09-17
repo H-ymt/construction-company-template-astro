@@ -2,9 +2,10 @@
 import Layout from "../../layouts/Layout.astro";
 import Sheet from "../../components/Sheet.astro";
 import { getWorks } from "../../libs/microcms";
-import Title from "../../components/Title.astro";
 import { Image } from "astro:assets";
 import formatDate from "../../utils/formatDate";
+import Section from "../../components/Section.astro";
+import SectionTitle from "../../components/SectionTitle.astro";
 
 const response = await getWorks({
   fields: ["id", "thumbnail", "title", "body", "date"],
@@ -13,25 +14,30 @@ const response = await getWorks({
 
 <Layout title="施工実績" commonjs="./js/common.js">
   <Sheet>
-    <Title>施工実績</Title>
-    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-8">
-      {
-        response.contents.map((content: any) => (
-          <li class="flex flex-col gap-2">
-            <a href={`/works/${content.id}`} />
-            <Image
-              src={content.thumbnail?.url}
-              width={content.thumbnail?.width}
-              height={content.thumbnail?.height}
-              alt=""
-              class="rounded-xl w-full max-h-[300px] object-cover"
-            />
-            <h2>{content.title}</h2>
-            <p>{formatDate(content.date)}</p>
-            <p set:html={content.body} />
-          </li>
-        ))
-      }
-    </ul>
+    <Section>
+      <div class="text-center">
+        <SectionTitle eng="Works">施工実績</SectionTitle>
+      </div>
+      <ul class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+        {
+          response.contents.map((content: any) => (
+            <li class="flex flex-col gap-2">
+              <a href={`/works/${content.id}`} />
+              <Image
+                src={content.thumbnail?.url}
+                width={content.thumbnail?.width}
+                height={content.thumbnail?.height}
+                alt=""
+                class="rounded-xl w-full max-h-[300px] object-cover"
+              />
+              <h2>{content.title}</h2>
+
+              <p>{formatDate(content.date)}</p>
+              <p set:html={content.body} />
+            </li>
+          ))
+        }
+      </ul>
+    </Section>
   </Sheet>
 </Layout>

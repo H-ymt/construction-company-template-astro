@@ -22,9 +22,9 @@ export const prerender = true;
             >
               <div>
                 <Image
-                  src={content.thumbnail?.url}
-                  width="460"
-                  height="390"
+                  src={content.thumbnail?.url + "?w=460&h=290"}
+                  width={content.thumbnail?.width}
+                  height={content.thumbnail?.height}
                   alt=""
                   class="rounded-xl w-full md:max-w-[460px] mx-auto"
                 />

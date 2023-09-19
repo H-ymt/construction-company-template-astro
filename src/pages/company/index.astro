@@ -1,10 +1,62 @@
 ---
+import PageTitle from "../../components/PageTitle.astro";
+import Section from "../../components/Section.astro";
+import SectionTitle from "../../components/SectionTitle.astro";
 import Sheet from "../../components/Sheet.astro";
 import Layout from "../../layouts/Layout.astro";
 ---
 
 <Layout title="会社情報" commonjs="./js/common.js">
   <Sheet>
-    <h1>会社情報</h1>
+    <PageTitle>会社情報</PageTitle>
+    <Section>
+      <div class="flex flex-col gap-20">
+        <div class="grid md:grid-cols-2 items-center gap-[40px]">
+          <div>
+            <img
+              src="/company.webp"
+              width="1200"
+              height="1172"
+              alt="会社の画像"
+              class="rounded-2xl"
+            />
+          </div>
+
+          <div class="flex flex-col">
+            <SectionTitle eng="about">企業概要</SectionTitle>
+            <p class="text-justify">
+              私たちは、建築物の設計と建設に特化した企業です。<br
+              />私たちの専門家チームは、建築、エンジニアリング、プロジェクト管理の各分野で豊富な経験と知識を持っており、最高品質のサービスを提供し、お客様の期待を超える結果を生み出します。
+              お客様と共に夢を追い求め、未来の都市風景を一緒に創造していきます。私たちと一緒に、ビジョンを現実にしましょう。
+            </p>
+          </div>
+        </div>
+
+        <hr class="border-green-800" />
+
+        <div class="grid md:grid-cols-2 items-center gap-[40px]">
+          <div class="md:order-2">
+            <img
+              src="/president.webp"
+              width="1200"
+              height="1172"
+              alt="会社の画像"
+              class="rounded-2xl"
+            />
+          </div>
+
+          <div class="flex flex-col">
+            <SectionTitle eng="about">社長メッセージ</SectionTitle>
+            <p class="text-justify">
+              皆様、こんにちは。私は〇〇建設の社長、〇〇と申します。<br
+              />〇〇建設は、お客様の夢を形にするため、お客様一人ひとりのニーズに対応するため日々努力しております。
+              私たち〇〇建設は、お客様と共に歩んできました。これからも、お客様の夢を実現するパートナーとして、一緒に歩んでいきたいと思っています。<br
+              />
+               今後とも〇〇建設をどうぞよろしくお願い申し上げます。
+            </p>
+          </div>
+        </div>
+      </div>
+    </Section>
   </Sheet>
 </Layout>

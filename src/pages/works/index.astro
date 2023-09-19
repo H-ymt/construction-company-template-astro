@@ -21,18 +21,19 @@ const response = await getWorks({
         {
           response.contents.map((content: any) => (
             <li class="flex flex-col gap-2 max-w-[460px]">
-              <a href={`/works/${content.id}`} />
-              <Image
-                src={content.thumbnail?.url + "?w=600&h=400"}
-                width={content.thumbnail?.width}
-                height={content.thumbnail?.height}
-                alt=""
-                class="rounded-xl w-full max-h-[300px] object-cover"
-              />
-              <h2>{content.title}</h2>
+              <a href={`/works/${content.id}`}>
+                <Image
+                  src={content.thumbnail?.url + "?w=600&h=400"}
+                  width={content.thumbnail?.width}
+                  height={content.thumbnail?.height}
+                  alt=""
+                  class="rounded-xl w-full max-h-[300px] object-cover"
+                />
+                <h2>{content.title}</h2>
 
-              <p>{formatDate(content.date)}</p>
-              <p set:html={content.body} />
+                <p>{formatDate(content.date)}</p>
+                <p set:html={content.body} />
+              </a>
             </li>
           ))
         }

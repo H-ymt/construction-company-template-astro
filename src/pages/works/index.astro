@@ -17,10 +17,10 @@ const response = await getWorks({
     <PageTitle>施工実績</PageTitle>
     <Section>
       <div class="text-center"></div>
-      <ul class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+      <ul class="grid grid-cols-1 md:grid-cols-2 justify-items-center gap-8">
         {
           response.contents.map((content: any) => (
-            <li class="flex flex-col gap-2">
+            <li class="flex flex-col gap-2 max-w-[460px]">
               <a href={`/works/${content.id}`} />
               <Image
                 src={content.thumbnail?.url + "?w=600&h=400"}

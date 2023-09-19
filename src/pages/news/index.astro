@@ -1,7 +1,44 @@
 ---
+import PageTitle from "../../components/PageTitle.astro";
+import Section from "../../components/Section.astro";
+import Sheet from "../../components/Sheet.astro";
 import Layout from "../../layouts/Layout.astro";
+import { getNews } from "../../libs/microcms";
+import formatDate from "../../utils/formatDate";
+
+const response = await getNews({
+  fields: ["id", "publishedAt", "title", "category"],
+});
 ---
 
 <Layout title="News" commonjs="./js/common.js">
-  <h1>News</h1>
+  <Sheet>
+    <PageTitle>お知らせ</PageTitle>
+    <Section>
+      <ul class="flex flex-col gap-8">
+        {
+          response.contents.map((content) => (
+            <li class="border-b border-gray-950 pb-1.5 sm:pb-4 group">
+              <a
+                href={`/news/${content.id}`}
+                class="flex flex-col sm:flex-row hover:opacity-100"
+              >
+                <div class="inline-flex items-center">
+                  <time class="text-base font-semibold">
+                    {formatDate(content.publishedAt)}
+                  </time>
+                  <span class="inline-flex justify-center min-w-[80px] ml-3 py-1 px-2 text-white text-sm bg-green-800/80 rounded-md">
+                    {content.category.name}
+                  </span>
+                </div>
+                <p class="inline-block mt-2 sm:mt-0 sm:ml-3 text-lg group-hover:underline underline-offset-2 decoration-1 whitespace-nowrap overflow-ellipsis line-clamp-1">
+                  {content.title}
+                </p>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </Section>
+  </Sheet>
 </Layout>

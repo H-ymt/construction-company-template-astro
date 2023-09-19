@@ -9,7 +9,7 @@ const response = await getNews({
 
 <ul class="flex flex-col gap-8">
   {
-    response.contents.slice(0, 3).map((content: any) => (
+    response.contents.slice(0, 3).map((content) => (
       <li class="border-b border-gray-950 pb-1.5 sm:pb-4 group">
         <a
           href={`/news/${content.id}`}

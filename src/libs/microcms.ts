@@ -14,7 +14,9 @@ export type News = {
   revisedAt: string;
   title: string;
   content: string;
-  category: string;
+  category: {
+    name: string;
+  };
 };
 
 export type NewsResponse = {

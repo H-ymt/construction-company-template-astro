@@ -26,9 +26,8 @@ const news = await getNewsDetail(newsId as string);
 
 <Layout title="お知らせ" commonjs="./js/common.js">
   <Sheet>
+    <PageTitle>{news.title}</PageTitle>
     <Section>
-      <PageTitle>{news.title}</PageTitle>
-
       <div class="mt-10 w-full max-w-4xl mx-auto">
         <p class="font-bold">{formatDate(news.publishedAt)}</p>
         <div set:html={news.content} class="py-4 px-1 text-lg" />

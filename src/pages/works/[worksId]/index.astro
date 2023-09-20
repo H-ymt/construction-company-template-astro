@@ -5,6 +5,7 @@ import type { Works } from "../../../libs/microcms";
 import Sheet from "../../../components/Sheet.astro";
 import Section from "../../../components/Section.astro";
 import PageTitle from "../../../components/PageTitle.astro";
+import ArrowLink from "../../../components/ArrowLink.astro";
 
 // 詳細ページの全パスを取得
 export async function getStaticPaths() {
@@ -24,20 +25,23 @@ const works = await getWorksDetail(worksId as string);
 
 <Layout title={`${works.title} - 施工実績`} commonjs="./js/common.js">
   <Sheet>
+    <PageTitle eng="">{works.title}</PageTitle>
     <Section>
       <div class="flex flex-col items-center">
-        <PageTitle eng="">{works.title}</PageTitle>
-
         <div class="w-full max-w-[720px]">
           <img
             src={works.thumbnail?.url}
             width={works.thumbnail?.width}
             height={works.thumbnail?.height}
             alt=""
-            class="rounded-xl"
+            class="inline-block rounded-xl"
           />
 
           <p set:html={works.body} class="mt-6 text-justify" />
+
+          <div class="block w-full mt-6 text-right">
+            <ArrowLink href="/works">施工実績一覧へ戻る</ArrowLink>
+          </div>
         </div>
       </div>
     </Section>

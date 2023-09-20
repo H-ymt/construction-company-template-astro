@@ -3,6 +3,10 @@ import Layout from "../../../layouts/Layout.astro";
 import formatDate from "../../../utils/formatDate";
 import { getNews, getNewsDetail } from "../../../libs/microcms";
 import type { News } from "../../../libs/microcms";
+import Sheet from "../../../components/Sheet.astro";
+import Section from "../../../components/Section.astro";
+import PageTitle from "../../../components/PageTitle.astro";
+import ArrowLink from "../../../components/ArrowLink.astro";
 
 // 詳細記事ページの全パスを取得
 export async function getStaticPaths() {
@@ -21,8 +25,18 @@ const news = await getNewsDetail(newsId as string);
 ---
 
 <Layout title="お知らせ" commonjs="./js/common.js">
-  <h1>{news.title}</h1>
-  <p>{formatDate(news.publishedAt)}</p>
+  <Sheet>
+    <Section>
+      <PageTitle>{news.title}</PageTitle>
 
-  <div set:html={news.content} />
+      <div class="mt-10 w-full max-w-4xl mx-auto">
+        <p class="font-bold">{formatDate(news.publishedAt)}</p>
+        <div set:html={news.content} class="py-4 px-1 text-lg" />
+      </div>
+
+      <div class="flex justify-end">
+        <ArrowLink href="/news">ニュース一覧へ戻る</ArrowLink>
+      </div>
+    </Section>
+  </Sheet>
 </Layout>

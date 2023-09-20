@@ -1,8 +1,10 @@
 ---
-import { Image } from "astro:assets";
 import Layout from "../../../layouts/Layout.astro";
 import { getWorksDetail, getWorks } from "../../../libs/microcms";
 import type { Works } from "../../../libs/microcms";
+import Sheet from "../../../components/Sheet.astro";
+import Section from "../../../components/Section.astro";
+import SectionTitle from "../../../components/SectionTitle.astro";
 
 // 詳細ページの全パスを取得
 export async function getStaticPaths() {
@@ -21,12 +23,23 @@ const works = await getWorksDetail(worksId as string);
 ---
 
 <Layout title={`${works.title} - 施工実績`} commonjs="./js/common.js">
-  <h1>{works.title}</h1>
-  <img
-    src={works.thumbnail?.url}
-    width={works.thumbnail?.width}
-    height={works.thumbnail?.height}
-    alt=""
-    class="max-w-[860px] rounded-xl"
-  />
+  <Sheet>
+    <Section>
+      <div class="flex flex-col items-center">
+        <SectionTitle eng="">{works.title}</SectionTitle>
+
+        <div class="w-full max-w-[720px]">
+          <img
+            src={works.thumbnail?.url}
+            width={works.thumbnail?.width}
+            height={works.thumbnail?.height}
+            alt=""
+            class="rounded-xl"
+          />
+
+          <p set:html={works.body} class="mt-6 text-justify" />
+        </div>
+      </div>
+    </Section>
+  </Sheet>
 </Layout>

@@ -63,29 +63,5 @@ let showAll = false;
 </Layout>
 
 <script>
-  window.addEventListener("DOMContentLoaded", (event) => {
-    const loadMoreButton = document.getElementById("js-load-more");
-    if (loadMoreButton) {
-      loadMoreButton.addEventListener("click", () => {
-        const hiddenItems = document.querySelectorAll(".hidden");
-        hiddenItems.forEach((item) => {
-          item.classList.remove("hidden");
-        });
-        loadMoreButton.style.display = "none";
-      });
-    }
-  });
-
-  document.addEventListener("astro:after-swap", function (event) {
-    const loadMoreButton = document.getElementById("js-load-more");
-    if (loadMoreButton) {
-      loadMoreButton.addEventListener("click", () => {
-        const hiddenItems = document.querySelectorAll(".hidden");
-        hiddenItems.forEach((item) => {
-          item.classList.remove("hidden");
-        });
-        loadMoreButton.style.display = "none";
-      });
-    }
-  });
+  import "../../../public/js/works.js";
 </script>

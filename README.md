@@ -13,7 +13,6 @@ Node.js 18以上
 ```
 MICROCMS_API_KEY=xxxxxxxxxx
 MICROCMS_SERVICE_DOMAIN=xxxxxxxxxx
-BASE_URL=xxxxxxxxxx
 ```
 
 `MICROCMS_API_KEY`

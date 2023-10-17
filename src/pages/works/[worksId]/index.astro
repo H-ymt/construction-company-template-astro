@@ -29,7 +29,7 @@ const works = await getWorksDetail(worksId as string);
       <div class="flex flex-col items-center">
         <div class="w-full max-w-[720px]">
           <img
-            src={works.thumbnail?.url}
+            src={works.thumbnail?.url + "?w=720&h=480"}
             width={works.thumbnail?.width}
             height={works.thumbnail?.height}
             alt=""

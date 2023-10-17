@@ -1,9 +1,13 @@
 ---
+import { Picture } from "astro:assets";
 import PageTitle from "../../components/PageTitle.astro";
 import Section from "../../components/Section.astro";
 import SectionTitle from "../../components/SectionTitle.astro";
 import Sheet from "../../components/Sheet.astro";
 import Layout from "../../layouts/Layout.astro";
+
+import companyImage from "../../assets/company.webp";
+import presidentImage from "../../assets/president.webp";
 ---
 
 <Layout title="会社情報" commonjs="./js/common.js">
@@ -13,11 +17,10 @@ import Layout from "../../layouts/Layout.astro";
       <div class="flex flex-col gap-20">
         <div class="grid md:grid-cols-2 items-center gap-[40px]">
           <div>
-            <img
-              src="/company.webp"
-              width="1200"
-              height="1172"
-              alt="会社の画像"
+            <Picture
+              src={companyImage}
+              alt="会社の外観"
+              formats={["avif", "webp"]}
               class="rounded-2xl"
             />
           </div>
@@ -36,11 +39,10 @@ import Layout from "../../layouts/Layout.astro";
 
         <div class="grid md:grid-cols-2 items-center gap-[40px]">
           <div class="md:order-2">
-            <img
-              src="/president.webp"
-              width="1200"
-              height="1172"
-              alt="会社の画像"
+            <Picture
+              src={presidentImage}
+              alt="代表取締役社長の画像"
+              formats={["avif", "webp"]}
               class="rounded-2xl"
             />
           </div>

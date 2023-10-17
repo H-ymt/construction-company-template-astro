@@ -4,7 +4,7 @@ const loadMore = (itemsToShow = 15) => {
   const loadMoreButton = document.querySelector(".js-load-more");
   if (loadMoreButton) {
     loadMoreButton.addEventListener("click", () => {
-      const hiddenItems = document.querySelectorAll(`.hidden`);
+      const hiddenItems = document.querySelectorAll(`.js-hiddenArticle.hidden`);
       hiddenItems.forEach((item, index) => {
         if (index < itemsToShow) {
           item.classList.remove("hidden");

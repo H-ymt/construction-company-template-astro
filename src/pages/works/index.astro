@@ -26,7 +26,7 @@ let showAll = false;
           response.contents.map((content: any, index: number) => (
             <li
               class={`flex flex-col gap-2 max-w-[460px] ${
-                index >= 4 ? "hidden" : ""
+                index >= 4 ? "hidden js-hiddenArticle" : ""
               }`}
             >
               <a href={`/works/${content.id}`} class="flex flex-col gap-1">

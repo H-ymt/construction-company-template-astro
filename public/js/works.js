@@ -1,19 +1,34 @@
-const loadMore = (itemsToShow = 5, targetClass = ".item") => {
+let itemsShown = 0;
+
+const loadMore = (itemsToShow = 15) => {
   const loadMoreButton = document.querySelector(".js-load-more");
   if (loadMoreButton) {
     loadMoreButton.addEventListener("click", () => {
-      const hiddenItems = Array.from(
-        document.querySelectorAll(`${targetClass}.hidden`),
-      );
-      hiddenItems.slice(0, itemsToShow).forEach((item) => {
-        item.classList.remove("hidden");
+      const hiddenItems = document.querySelectorAll(`.hidden`);
+      hiddenItems.forEach((item, index) => {
+        if (index < itemsToShow) {
+          item.classList.remove("hidden");
+          itemsShown++;
+        }
       });
-      if (hiddenItems.length <= itemsToShow) {
+      if (itemsShown >= hiddenItems.length) {
         loadMoreButton.style.display = "none";
       }
     });
   }
 };
 
+const addHiddenClassToNewElements = () => {
+  const allElements = Array.from(document.body.children);
+  allElements.slice(4).forEach((element) => {
+    element.classList.add("hidden");
+  });
+};
+
+addHiddenClassToNewElements();
 loadMore();
-document.addEventListener("astro:after-swap", loadMore);
+
+document.addEventListener("astro:after-swap", () => {
+  addHiddenClassToNewElements();
+  loadMore();
+});

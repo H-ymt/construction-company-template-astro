@@ -7,23 +7,27 @@ import Section from "../components/Section.astro";
 import ArrowLink from "../components/ArrowLink.astro";
 import PrimaryButton from "../components/PrimaryButton.astro";
 import WorksList from "../components/WorksList.astro";
+import heroImage from "../assets/hero.webp";
+import heroImageSm from "../assets/hero-sm.webp";
 ---
 
 <Layout title="Simple site" commonjs="./js/common.js">
   <div class="grid place-items-center justify-center relative">
     <picture>
       <source
-        srcset="./hero.webp"
+        srcset={heroImage.src}
         media="(min-width:640px)"
         width="1919"
         height="1078"
       />
       <img
-        src="./hero-sm.webp"
+        src={heroImageSm.src}
         alt=""
         width="640"
         height="650"
-        class="object-cover h-[calc(100vh-72px)] sm:h-auto"
+        class="object-cover h-[calc(100vh-72px)]"
+        decoding="async"
+        loading="eager"
       />
     </picture>
 

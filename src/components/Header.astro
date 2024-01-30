@@ -2,25 +2,27 @@
 import { Image } from "astro:assets";
 import Hamburger from "./Hamburger.astro";
 
+const active = Astro.url.pathname;
+
 const nav = [
   {
     href: "/",
     label: "ホーム",
   },
   {
-    href: "/company",
+    href: "/company/",
     label: "会社情報",
   },
   {
-    href: "/works",
+    href: "/works/",
     label: "施工実績",
   },
   {
-    href: "/news",
+    href: "/news/",
     label: "お知らせ",
   },
   {
-    href: "/contact",
+    href: "/contact/",
     label: "お問合せ",
   },
 ];
@@ -45,7 +47,13 @@ const nav = [
       <ul class="flex [&>li]:px-3 group">
         {
           nav.map((item) => (
-            <li class="flex flex-col items-center relative after:opacity-0 after:w-0 after:transition-all hover:after:absolute hover:after:opacity-100 hover:after:inline-block hover:after:w-8 hover:after:bottom-[-4px] hover:after:h-0.5 hover:after:bg-green-700 hover:text-green-900 transition-all">
+            <li
+              class={`flex flex-col items-center relative after:opacity-0 after:w-0 after:transition-all hover:after:absolute hover:after:opacity-100 hover:after:inline-block hover:after:w-8 hover:after:bottom-[-6px] hover:after:h-0.5 hover:after:bg-green-700/30 hover:text-green-900 transition-all ${
+                active === item.href
+                  ? "after:absolute after:opacity-100 after:inline-block after:w-8 after:bottom-[-6px] after:h-0.5 after:bg-green-700"
+                  : ""
+              }`}
+            >
               <a class="hover:opacity-100" href={item.href}>
                 {item.label}
               </a>

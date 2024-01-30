@@ -12,24 +12,23 @@ export const prerender = true;
 
 <div class="relative max-w-full mx-auto pb-[24px]">
   <div class="swiper">
-    <ul class="swiper-wrapper">
+    <div class="swiper-wrapper">
       {
         limitedWorks.slice(0, 4).map((content: any) => (
-          <li class="swiper-slide" role="listitem">
+          <div class="swiper-slide" role="listitem">
             <a
               href={`/works/${content.id}`}
               class="grid justify-items-start items-center md:grid-cols-2 gap-4"
             >
+              <Image
+                src={content.thumbnail?.url + "?w=460&h=290"}
+                width={content.thumbnail?.width}
+                height={content.thumbnail?.height}
+                alt=""
+                format="webp"
+                class="rounded-xl w-full md:max-w-[460px] mx-auto"
+              />
               <div>
-                <Image
-                  src={content.thumbnail?.url + "?w=460&h=290"}
-                  width={content.thumbnail?.width}
-                  height={content.thumbnail?.height}
-                  alt=""
-                  class="rounded-xl w-full md:max-w-[460px] mx-auto"
-                />
-              </div>
-              <div class="">
                 <h3 class="text-lg font-semibold">{content.title}</h3>
                 <div
                   set:html={content.body}
@@ -37,10 +36,10 @@ export const prerender = true;
                 />
               </div>
             </a>
-          </li>
+          </div>
         ))
       }
-    </ul>
+    </div>
   </div>
   <div
     class="swiper-pagination z-0 [&>span.swiper-pagination-bullet-active]:bg-green-400"

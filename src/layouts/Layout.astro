@@ -23,7 +23,7 @@ const { title, commonjs } = Astro.props;
     <title>{title}</title>
     <ViewTransitions fallback="swap" />
   </head>
-  <body class="font-notoSans">
+  <body class="font-noto">
     <Header />
     <main>
       <slot />
@@ -35,16 +35,19 @@ const { title, commonjs } = Astro.props;
       }
 
       html {
-        color: #333;
+        color: #24292f;
         background: #fefefefb;
       }
 
       body {
+        min-height: 100vh;
       }
 
       p {
         display: flex;
         align-items: center;
+        font-size: 15px;
+        color: #57606a;
       }
     </style>
   </body>

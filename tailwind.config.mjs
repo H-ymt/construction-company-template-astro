@@ -1,12 +1,15 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   future: { hoverOnlyWhenSupported: true },
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     fontFamily: {
-      notoSans: ["Noto Sans JP", "sans-serif"],
+      noto: ["Noto Sans JP", "sans-serif"],
     },
     extend: {
+      colors: {
+        black: "#24292f",
+      },
       green: {
         50: "#effaf5",
         100: "#d8f3e6",

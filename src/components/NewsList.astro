@@ -16,10 +16,10 @@ const response = await getNews({
           class="flex flex-col sm:flex-row hover:opacity-100"
         >
           <div class="inline-flex items-center">
-            <time class="text-base font-semibold">
+            <time class="text-xs font-medium">
               {formatDate(content.publishedAt)}
             </time>
-            <span class="inline-flex justify-center min-w-[80px] ml-3 py-1 px-2 text-white text-sm bg-green-800/80 rounded-md">
+            <span class="inline-flex justify-center min-w-[80px] ml-3 py-1 px-2 text-white text-xs bg-green-800/80 rounded-md">
               {content.category.name}
             </span>
           </div>

@@ -7,23 +7,23 @@ const active = Astro.url.pathname;
 const nav = [
   {
     href: "/",
-    label: "ホーム",
+    label: "Home",
   },
   {
     href: "/company/",
-    label: "会社情報",
+    label: "Company",
   },
   {
     href: "/works/",
-    label: "施工実績",
+    label: "Works",
   },
   {
     href: "/news/",
-    label: "お知らせ",
+    label: "News",
   },
   {
     href: "/contact/",
-    label: "お問合せ",
+    label: "Contact",
   },
 ];
 ---
@@ -39,7 +39,6 @@ const nav = [
       href="/"
       class="inline-block hover:opacity-70 duration-300 cursor-pointer"
       ><Image src="/favicon.svg" alt="ホームへ戻る" width="40" height="40" />
-      
     </a>
 
     <Hamburger />

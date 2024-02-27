@@ -10,9 +10,9 @@ import companyImage from "../../assets/company.webp";
 import presidentImage from "../../assets/president.webp";
 ---
 
-<Layout title="会社情報" commonjs="./js/common.js">
+<Layout title="Company" commonjs="./js/common.js">
   <Sheet>
-    <PageTitle>会社情報</PageTitle>
+    <PageTitle>Company</PageTitle>
     <Section>
       <div class="flex flex-col gap-20">
         <div class="grid md:grid-cols-2 items-center gap-[40px]">
@@ -26,11 +26,12 @@ import presidentImage from "../../assets/president.webp";
           </div>
 
           <div class="flex flex-col">
-            <SectionTitle eng="about">企業概要</SectionTitle>
-            <p class="text-justify">
-              私たちは、建築物の設計と建設に特化した企業です。<br
-              />私たちの専門家チームは、建築、エンジニアリング、プロジェクト管理の各分野で豊富な経験と知識を持っており、最高品質のサービスを提供し、お客様の期待を超える結果を生み出します。
-              お客様と共に夢を追い求め、未来の都市風景を一緒に創造していきます。私たちと一緒に、ビジョンを現実にしましょう。
+            <SectionTitle>About</SectionTitle>
+            <p>
+              We are a company specializing in building design and construction.<br
+              />We pursue dreams together with our customers and create the
+              urban landscape of the future together. Join us and make your
+              vision a reality.
             </p>
           </div>
         </div>
@@ -41,20 +42,20 @@ import presidentImage from "../../assets/president.webp";
           <div class="md:order-2">
             <Picture
               src={presidentImage}
-              alt="代表取締役社長の画像"
+              alt="president image"
               formats={["avif", "webp"]}
               class="rounded-2xl"
             />
           </div>
 
           <div class="flex flex-col">
-            <SectionTitle eng="about">社長メッセージ</SectionTitle>
-            <p class="text-justify">
-              皆様、こんにちは。私は〇〇建設の社長、〇〇と申します。<br
-              />〇〇建設は、お客様の夢を形にするため、お客様一人ひとりのニーズに対応するため日々努力しております。
-              私たち〇〇建設は、お客様と共に歩んできました。これからも、お客様の夢を実現するパートナーとして、一緒に歩んでいきたいと思っています。<br
-              />
-               今後とも〇〇建設をどうぞよろしくお願い申し上げます。
+            <SectionTitle>Message from the President</SectionTitle>
+            <p>
+              Construction strives every day to respond to the needs of each
+              customer in order to make their dreams come true. We at
+              Construction have been working together with our customers. We
+              look forward to continuing to work with our customers as a partner
+              in making their dreams come true.
             </p>
           </div>
         </div>

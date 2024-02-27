@@ -22,7 +22,7 @@ const { worksId } = Astro.params;
 const works = await getWorksDetail(worksId as string);
 ---
 
-<Layout title={`${works.title} - 施工実績`} commonjs="./js/common.js">
+<Layout title={`${works.title} - Works`} commonjs="./js/common.js">
   <Sheet>
     <PageTitle eng="">{works.title}</PageTitle>
     <Section>
@@ -41,7 +41,7 @@ const works = await getWorksDetail(worksId as string);
           <div class="text-right">
             <a
               class="inline-flex justify-end items-center mt-6 py-2 px-6 border border-[#5b5b5b5e] rounded-lg hover:bg-[#333] hover:text-white transition-all"
-              href="/works">施工実績一覧へ戻る</a
+              href="/works">Construction record</a
             >
           </div>
         </div>
